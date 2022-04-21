@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dYdX.Net", "dYdX.Net\dYdX.Net.csproj", "{5FD57D8B-A7FB-4948-B4BB-402F9C436464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dYdX.Net.Examples", "dYdX.Net.Examples\dYdX.Net.Examples.csproj", "{867A95D0-E4F6-4021-BD97-3711A70E293C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FD57D8B-A7FB-4948-B4BB-402F9C436464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD57D8B-A7FB-4948-B4BB-402F9C436464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD57D8B-A7FB-4948-B4BB-402F9C436464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD57D8B-A7FB-4948-B4BB-402F9C436464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867A95D0-E4F6-4021-BD97-3711A70E293C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867A95D0-E4F6-4021-BD97-3711A70E293C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867A95D0-E4F6-4021-BD97-3711A70E293C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867A95D0-E4F6-4021-BD97-3711A70E293C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC294744-717A-4B94-94C6-582EA115E6F8}
+	EndGlobalSection
+EndGlobal
