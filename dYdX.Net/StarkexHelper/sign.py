@@ -7,6 +7,7 @@ import dateutil.parser as dp
 import sys
 import json
 
+
 order_to_sign = SignableOrder(
                 network_id=int(sys.argv[1]),
                 position_id=sys.argv[2],

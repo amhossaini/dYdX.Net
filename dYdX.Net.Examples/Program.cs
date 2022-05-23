@@ -13,17 +13,20 @@ namespace dYdX.Net.Examples
             string mockApiSecret = "...";
             string mockApiPassphrase = "...";
             string mockStarkPrivateKey = "...";
-            string mockEthereumAddress = "0x...";
+            string mockEthereumAddress = "...";
+            string mockEthereumPrivateKey = "...";
             int mockPositionId = 111111;
 
+            // create client
             dYDXClient = new DYDXClient(Enums.NetworkType.MAINNET);
 
-            Structs.ApiKeyCredentials apiKeyCredentials = new Structs.ApiKeyCredentials(mockApiKey, mockApiSecret, mockApiPassphrase);
-            dYDXClient._private.SetApiKeyCredentials(apiKeyCredentials);
-            dYDXClient._private.SetStarkPrivateKey(mockStarkPrivateKey);
-            
             // call get markets : public api 
             GetMarkets();
+
+            // set api credentials. api credentials needed for private api
+            Structs.ApiKeyCredentials apiKeyCredentials = new Structs.ApiKeyCredentials(mockApiKey, mockApiSecret, mockApiPassphrase);
+            dYDXClient.SetApiKeyCredentials(apiKeyCredentials);
+            dYDXClient.SetStarkPrivateKey(mockStarkPrivateKey);
 
             // call get account : private api 
             GetAccount(mockEthereumAddress);
@@ -40,6 +43,15 @@ namespace dYdX.Net.Examples
             apiOrder.limitFee = 1;
             apiOrder.expiration = DateTime.Now.AddSeconds(60);
             CreateOrder(apiOrder, mockPositionId);
+
+            // set ethereum private key. this needed for onboarding and eth-private
+            dYDXClient.SetEthereumPrivateKey(mockEthereumPrivateKey);
+
+            // call derive stark key : onboarding
+            DeriveStarkKey();
+
+            // call recovery : eth-private
+            Recovery();
 
             Console.Write("press any key to exit...");
             Console.ReadKey();
@@ -81,6 +93,32 @@ namespace dYdX.Net.Examples
             catch (Exception exception)
             {
                 throw new Exception("CreateOrder request failed.", exception);
+            }
+        }
+
+        public static async void DeriveStarkKey()
+        {
+            try
+            {
+                var starkKey = await dYDXClient._onboarding.DeriveStarkKey();
+                Console.WriteLine(starkKey);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("DeriveStarkKey request failed.", exception);
+            }
+        }
+
+        public static async void Recovery()
+        {
+            try
+            {
+                var result = await dYDXClient._ethPrivate.Recovery();
+                Console.WriteLine(result);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("Recovery request failed.", exception);
             }
         }
 
